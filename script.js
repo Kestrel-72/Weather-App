@@ -18,17 +18,21 @@ inputButton.addEventListener('click', () => {
 async function getWeatherData(location) {
    let url = 'http://api.weatherapi.com/v1/current.json?key=cb4c3b036354487e82a82318231405&q=';
    const response = await fetch(url + location, { mode: 'cors' });
+   // console.log(response.json());
    return response.json();
 }
 
 function processWeatherData(response) {
    return {
       location: response.location.name,
+      country: response.location.country,
       temp: response.current.temp_c,
       condition: response.current.condition.text,
       cloud: response.current.cloud,
-      wind: response.current.wind_kph,
+      wind_kph: response.current.wind_kph,
+      wind_dir: response.current.wind_dir,
       humidity: response.current.humidity,
+      uv: response.current.uv,
    }
 }
 
@@ -36,7 +40,7 @@ function populateWeatherInfo(data) {
    tempP.textContent = `Temperature ${data.temp} C°`;
    conditionP.textContent = data.condition;
    cloudP.textContent = `Cloudiness ${data.cloud}`;
-   windP.textContent = `Wind ${data.wind} km/h`;
+   windP.textContent = `Wind ${data.wind_kph} km/h`;
    humidityP.textContent = `Humidity ${data.humidity}`;
 }
 
