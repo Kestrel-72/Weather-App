@@ -4,6 +4,7 @@ let inputField = document.getElementById('inputField');
 let locationP = document.querySelector('.location');
 let tempP = document.querySelector('.temp-p');
 let conditionP = document.querySelector('.condition-p');
+let windDescriptionP = document.querySelector('.wind-description-p');
 let cloudP = document.querySelector('.cloud-p');
 let windP = document.querySelector('.wind-p');
 let humidityP = document.querySelector('.humidity-p');
@@ -42,6 +43,7 @@ function populateWeatherInfo(data) {
    locationP.textContent = `${data.location}, ${data.country}`,
    tempP.textContent = `Temperature ${data.temp} C°`;
    conditionP.textContent = data.condition;
+   windDescriptionP.textContent = calculateWindDescription(data.wind_kph);
    cloudP.textContent = `Cloudiness ${data.cloud}%`;
    windP.textContent = `Wind ${data.wind_kph} km/h`;
    humidityP.textContent = `Humidity ${data.humidity}%`;
@@ -57,4 +59,34 @@ async function showWeatherData(location) {
    } catch (err) {
       console.log(err);
    }
+}
+
+function calculateWindDescription(wind) {
+   let windDescription = '';
+   if (wind < 1) {
+      windDescription = 'Calm and still';
+   } else if (wind < 5) {
+      windDescription = 'Light wind';
+   } else if (wind < 12) {
+      windDescription = 'Light breeze';
+   } else if (wind < 29) {
+      windDescription = 'Gentle breeze';
+   } else if (wind < 39) {
+      windDescription = 'Fresh breeze';
+   } else if (wind < 50) {
+      windDescription = 'Strong breeze';
+   } else if (wind < 62) {
+      windDescription = 'Moderate gale';
+   } else if (wind < 75) {
+      windDescription = 'Fresh gale';
+   } else if (wind < 89) {
+      windDescription = 'Strong gale';
+   } else if (wind < 103) {
+      windDescription = 'Whole gale';
+   } else if (wind < 119) {
+      windDescription = 'Storm';
+   } else {
+      windDescription = 'Hurricane';
+   }
+   return windDescription;
 }
