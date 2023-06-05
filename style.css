@@ -60,18 +60,19 @@ main {
    border: 1px solid green;
 }
 
-.temp-div {
-   font-size: 3rem;
+.temp-p {
    text-align: center;
+   font-size: 4rem;
+   margin: 20px 0 ;
 }
 
-.temp-p {
-   margin: 20px 0 ;
+.degree-sign {
+   font-size: 1rem;
 }
 
 .condition-div, .wind-description-div {
    display: flex;
-   justify-content: center;
+   justify-content: left;
    align-items: center;
 }
 

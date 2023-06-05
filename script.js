@@ -3,6 +3,7 @@ let inputField = document.getElementById('inputField');
 
 let locationP = document.querySelector('.location');
 let tempP = document.querySelector('.temp-p');
+let degreeSpan = document.querySelector('.degree-sign');
 let conditionP = document.querySelector('.condition-p');
 let windDescriptionP = document.querySelector('.wind-description-p');
 let cloudP = document.querySelector('.cloud-p');
@@ -41,7 +42,9 @@ function processWeatherData(response) {
 
 function populateWeatherInfo(data) {
    locationP.textContent = `${data.location}, ${data.country}`,
-   tempP.textContent = `${data.temp}°C`;
+   tempP.textContent = `${data.temp}`;
+   degreeSpan.textContent = '°C';
+   tempP.appendChild(degreeSpan);
    conditionP.textContent = data.condition;
    windDescriptionP.textContent = calculateWindDescription(data.wind_kph);
    cloudP.textContent = `${data.cloud}%`;
