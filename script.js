@@ -19,6 +19,12 @@ inputButton.addEventListener('click', () => {
    }
 })
 
+document.addEventListener('keypress', (event) => {
+   if (event.key == 'Enter') {
+      inputButton.click();
+   }
+})
+
 async function getWeatherData(location) {
    let url = 'http://api.weatherapi.com/v1/current.json?key=cb4c3b036354487e82a82318231405&q=';
    const response = await fetch(url + location, { mode: 'cors' });
