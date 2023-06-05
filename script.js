@@ -42,7 +42,7 @@ function processWeatherData(response) {
 
 function populateWeatherInfo(data) {
    locationP.textContent = `${data.location}, ${data.country}`,
-   tempP.textContent = `${data.temp}`;
+   tempP.textContent = `${data.temp.toFixed(0)}`;
    degreeSpan.textContent = '°C';
    tempP.appendChild(degreeSpan);
    conditionP.textContent = data.condition;
