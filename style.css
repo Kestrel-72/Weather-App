@@ -1,6 +1,9 @@
 html {
    box-sizing: border-box;
    font-size: 24px;
+   background: linear-gradient(#0284c7, #0c4a6e);
+   height: 100%;
+   color: white;
 }
 
 body {
@@ -24,11 +27,17 @@ main {
    height: 30px;
    width: 300px;
    font-size: 0.9rem;
+   padding: 4px 8px;
+   background-color: #082f49;
+   color: white;
+   border: none;
+   border-radius: 6px;
+   outline: none;
 }
 
 main {
    display: grid;
-   grid-template-columns: 300px 1fr;
+   grid-template-columns: 360px 1fr;
    grid-template-rows: max-content 1fr;
 }
 
@@ -46,7 +55,36 @@ main {
 }
 
 #primary-info {
+   display: grid;
+   grid-template-rows: max-content max-content max-content;
    border: 1px solid green;
+}
+
+.temp-div {
+   font-size: 3rem;
+   text-align: center;
+}
+
+.temp-p {
+   margin: 20px 0 ;
+}
+
+.condition-div, .wind-description-div {
+   display: flex;
+   justify-content: center;
+   align-items: center;
+}
+
+.condition-p {
+   font-size: 1.1rem;
+}
+
+.wind-description-p {
+   opacity: 0.7;
+}
+
+.condition-p, .wind-description-p {
+   margin: 6px 0;
 }
 
 #secondary-info {

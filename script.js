@@ -41,7 +41,7 @@ function processWeatherData(response) {
 
 function populateWeatherInfo(data) {
    locationP.textContent = `${data.location}, ${data.country}`,
-   tempP.textContent = `Temperature ${data.temp} C°`;
+   tempP.textContent = `${data.temp}°C`;
    conditionP.textContent = data.condition;
    windDescriptionP.textContent = calculateWindDescription(data.wind_kph);
    cloudP.textContent = `Cloudiness ${data.cloud}%`;
