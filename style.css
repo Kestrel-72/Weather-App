@@ -10,11 +10,11 @@
 html {
    box-sizing: border-box;
    font-size: 24px;
-   background: linear-gradient(#0284c7, #0c4a6e);
+   background: linear-gradient(#0891b2, #155e75);
    height: 100%;
    color: white;
    font-family: 'nunitoextralight', sans-serif;
-   font-weight: 800;
+   font-weight: 900;
 }
 
 body {
@@ -91,8 +91,8 @@ main {
    font-size: 1.1rem;
 }
 
-.wind-description-p {
-   font-size: 0.9rem;
+.wind-description-p, .secondary-header {
+   font-size: 0.8rem;
    opacity: 0.7;
 }
 
@@ -106,12 +106,14 @@ main {
    grid-template-rows: 1fr 1fr;
 }
 
+.secondary-div {
+   margin-bottom: 50px;
+}
+
 .secondary-p {
-   margin-top: 12px;
+   margin: 12px 0 0 0;
 }
 
 .secondary-header {
    display: none;
-   font-size: 0.9rem;
-   opacity: 0.8;
 }
