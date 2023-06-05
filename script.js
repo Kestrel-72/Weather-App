@@ -44,9 +44,9 @@ function populateWeatherInfo(data) {
    tempP.textContent = `${data.temp}°C`;
    conditionP.textContent = data.condition;
    windDescriptionP.textContent = calculateWindDescription(data.wind_kph);
-   cloudP.textContent = `Cloudiness ${data.cloud}%`;
-   windP.textContent = `Wind ${data.wind_kph} km/h`;
-   humidityP.textContent = `Humidity ${data.humidity}%`;
+   cloudP.textContent = `${data.cloud}%`;
+   windP.textContent = `${data.wind_kph} km/h`;
+   humidityP.textContent = `${data.humidity}%`;
    uvP.textContent = `${data.uv}`;
 }
 
@@ -55,6 +55,7 @@ async function showWeatherData(location) {
       let data = await getWeatherData(location);
       let processedData = processWeatherData(data);
       console.log(processedData);
+      displaySecondaryHeaders();
       populateWeatherInfo(processedData);
    } catch (err) {
       console.log(err);
@@ -89,4 +90,11 @@ function calculateWindDescription(wind) {
       windDescription = 'Hurricane';
    }
    return windDescription;
+}
+
+function displaySecondaryHeaders() {
+   let headers = document.getElementsByClassName('secondary-header');
+   [...headers].forEach(header => {
+      header.style.display = 'block';
+   });
 }

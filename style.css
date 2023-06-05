@@ -88,5 +88,17 @@ main {
 }
 
 #secondary-info {
+   display: grid;
+   grid-template-columns: 1fr 1fr;
+   grid-template-rows: 1fr 1fr;
    border: 1px solid blue;
+}
+
+.secondary-p {
+   margin-top: 12px;
+}
+
+.secondary-header {
+   display: none;
+   opacity: 0.8;
 }
