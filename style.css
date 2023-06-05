@@ -1,3 +1,7 @@
+:root {
+   --orange: rgb(255, 145, 0);
+}
+
 @font-face {
    font-family: 'nunitoextralight';
    src: url('nunito-variablefont_wght-webfont.woff2') format('woff2'),
@@ -34,6 +38,13 @@ main {
    height: 80px;
 }
 
+.search-form {
+   display: flex;
+   align-items: center;
+   background-color: #082f49;
+   border-radius: 6px;
+}
+
 #inputField {
    height: 30px;
    width: 300px;
@@ -45,6 +56,21 @@ main {
    border-radius: 6px;
    outline: none;
 }
+
+ #inputButton {
+   background-color: transparent;
+   border: none;
+   outline: none;
+   color: white;
+   font-weight: 900;
+   cursor: pointer;
+   padding: 10px;
+   font-size: 1rem;
+ }
+
+ #inputButton:active {
+   color: var(--orange);
+ }
 
 main {
    display: grid;
