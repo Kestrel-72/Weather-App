@@ -1,9 +1,20 @@
+@font-face {
+   font-family: 'nunitoextralight';
+   src: url('nunito-variablefont_wght-webfont.woff2') format('woff2'),
+        url('nunito-variablefont_wght-webfont.woff') format('woff');
+   font-weight: normal;
+   font-style: normal;
+
+}
+
 html {
    box-sizing: border-box;
    font-size: 24px;
    background: linear-gradient(#0284c7, #0c4a6e);
    height: 100%;
    color: white;
+   font-family: 'nunitoextralight', sans-serif;
+   font-weight: 600;
 }
 
 body {
