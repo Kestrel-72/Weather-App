@@ -35,7 +35,6 @@ main {
    grid-template-columns: 1fr minmax(200px, 400px) 1fr;
    grid-template-rows: 80px 1fr;
    align-items: center;
-   border-bottom: 2px solid black;
    height: 120px;
 }
 
@@ -93,7 +92,18 @@ main {
  .error-message-p {
    text-align: center;
    margin: 0;
-   color: rgb(104, 0, 0);
+   color: white;
+   animation-duration: 1s;
+   animation-name: glowup;
+ }
+
+ @keyframes glowup {
+   from {
+      color: var(--orange);
+   }
+   to {
+      color: white;
+   }
  }
 
 main {

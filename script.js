@@ -1,6 +1,6 @@
 let inputButton = document.getElementById('inputButton');
 let inputField = document.getElementById('inputField');
-let errorMessageP = document.querySelector('.error-message-p')
+let errorMessageDiv = document.querySelector('.error-message-div');
 
 let locationP = document.querySelector('.location');
 let tempP = document.querySelector('.temp-p');
@@ -65,10 +65,12 @@ async function showWeatherData(location) {
       let data = await getWeatherData(location);
       let processedData = processWeatherData(data);
       console.log(processedData);
+      removeErrorMessage();
       displaySecondaryHeaders();
       populateWeatherInfo(processedData);
    } catch (err) {
-      errorMessageP.textContent = 'Could not find location.'
+      removeErrorMessage();
+      renderErrorMessage('Could not find location');
    }
 }
 
@@ -107,4 +109,17 @@ function displaySecondaryHeaders() {
    [...headers].forEach(header => {
       header.style.display = 'block';
    });
+}
+
+function renderErrorMessage(message) {
+   let errorMessageP = document.createElement('p');
+   errorMessageP.classList.add('error-message-p');
+   errorMessageP.textContent = message;
+   errorMessageDiv.append(errorMessageP);
+}
+
+function removeErrorMessage() {
+   if (document.querySelector('.error-message-p')) {
+      document.querySelector('.error-message-p').remove();
+   }
 }
