@@ -31,11 +31,24 @@ main {
 }
 
 #top {
-   display: flex;
-   justify-content: space-between;
+   display: grid;
+   grid-template-columns: 1fr minmax(200px, 400px) 1fr;
+   grid-template-rows: 80px 1fr;
    align-items: center;
    border-bottom: 2px solid black;
-   height: 80px;
+   height: 120px;
+}
+
+.logo-div {
+   grid-column: 1 / 2;
+}
+
+.search-form {
+   grid-column: 2 / 3;
+}
+
+.settings-div {
+   grid-column: 3 / 4;
 }
 
 .search-form {
@@ -66,10 +79,21 @@ main {
    cursor: pointer;
    padding: 10px;
    font-size: 1rem;
+   margin-left: auto;
  }
 
  #inputButton:active {
    color: var(--orange);
+ }
+
+.error-message-div {
+   grid-column: 2 / 3;
+}
+
+ .error-message-p {
+   text-align: center;
+   margin: 0;
+   color: rgb(104, 0, 0);
  }
 
 main {

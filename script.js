@@ -1,5 +1,6 @@
 let inputButton = document.getElementById('inputButton');
 let inputField = document.getElementById('inputField');
+let errorMessageP = document.querySelector('.error-message-p')
 
 let locationP = document.querySelector('.location');
 let tempP = document.querySelector('.temp-p');
@@ -67,7 +68,7 @@ async function showWeatherData(location) {
       displaySecondaryHeaders();
       populateWeatherInfo(processedData);
    } catch (err) {
-      console.log(err);
+      errorMessageP.textContent = 'Could not find location.'
    }
 }
 
