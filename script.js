@@ -5,7 +5,7 @@ let inputField = document.getElementById('inputField');
 let errorMessageDiv = document.querySelector('.error-message-div'); 
 
 async function getWeatherData(location) {
-   let url = 'http://api.weatherapi.com/v1/current.json?key=cb4c3b036354487e82a82318231405&q=';
+   let url = 'https://api.weatherapi.com/v1/current.json?key=cb4c3b036354487e82a82318231405&q=';
    const response = await fetch(url + location, { mode: 'cors' });
    // console.log(response.json());
    return response.json();
