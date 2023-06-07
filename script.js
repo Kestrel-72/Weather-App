@@ -136,6 +136,9 @@ function loadTopHeader() {
 }
 
 function loadMain(data) {
+   if (document.querySelector('main')) {
+      document.querySelector('main').remove();
+   }
    let main = document.createElement('main');
 
    let locationSection = document.createElement('section');
