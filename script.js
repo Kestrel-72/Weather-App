@@ -15,10 +15,12 @@ function processWeatherData(response) {
    return {
       location: response.location.name,
       country: response.location.country,
-      temp: response.current.temp_c,
+      tempC: response.current.temp_c,
+      tempF: response.current.temp_f,
       condition: response.current.condition.text,
       cloud: response.current.cloud,
       wind_kph: response.current.wind_kph,
+      wind_mph: response.current.wind_mph,
       wind_dir: response.current.wind_dir,
       humidity: response.current.humidity,
       uv: response.current.uv,
@@ -228,7 +230,7 @@ function loadMain(data) {
    secondaryInfoSection.append(uvDiv);
 
    locationP.textContent = `${data.location}, ${data.country}`,
-   tempP.textContent = `${data.temp.toFixed(0)}`;
+   tempP.textContent = `${data.tempC.toFixed(0)}`;
    degreeSpan.textContent = '°C';
    tempP.append(degreeSpan);
    conditionP.textContent = data.condition;

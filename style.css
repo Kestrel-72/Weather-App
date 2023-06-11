@@ -12,13 +12,18 @@
 
 }
 
+@font-face {
+   font-family: 'nunitoregular';
+   src: url('Nunito-Regular.woff') format('woff');
+}
+
 html {
    box-sizing: border-box;
    font-size: 24px;
    background: linear-gradient(#0891b2, #155e75);
    height: 100%;
    color: white;
-   font-family: 'nunitoextralight', sans-serif;
+   font-family: 'nunitoregular', sans-serif;
    font-weight: 900;
 }
 
@@ -33,7 +38,7 @@ main {
 
 #top {
    display: grid;
-   grid-template-columns: 1fr minmax(200px, 400px) 1fr;
+   grid-template-columns: 1fr 1fr 1fr;
    grid-template-rows: 80px 1fr;
    align-items: center;
    height: 120px;
@@ -56,11 +61,12 @@ main {
    align-items: center;
    background-color: var(--dark);
    border-radius: 6px;
+   min-width: 270px;
 }
 
 #inputField {
    height: 30px;
-   width: 300px;
+   min-width: 150px;
    font-size: 0.9rem;
    padding: 4px 8px;
    background-color: var(--dark);
@@ -140,7 +146,7 @@ main {
    justify-content: center;
    align-items: center;
    grid-column: 1 / 3;
-   height: 100px;
+   height: fit-content;
    margin: 20px 0;
 }
 
