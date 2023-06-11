@@ -96,6 +96,7 @@ function loadTopHeader() {
    form.classList.add('search-form');
    form.action = '#';
    form.method = 'get';
+   form.autocomplete = 'off';
    let input = document.createElement('input');
    input.type = 'text';
    input.id = 'inputField';
