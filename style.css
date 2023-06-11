@@ -1,5 +1,6 @@
 :root {
    --orange: rgb(255, 145, 0);
+   --dark: #082f49;
 }
 
 @font-face {
@@ -53,7 +54,7 @@ main {
 .search-form {
    display: flex;
    align-items: center;
-   background-color: #082f49;
+   background-color: var(--dark);
    border-radius: 6px;
 }
 
@@ -62,14 +63,14 @@ main {
    width: 300px;
    font-size: 0.9rem;
    padding: 4px 8px;
-   background-color: #082f49;
+   background-color: var(--dark);
    color: white;
    border: none;
    border-radius: 6px;
    outline: none;
 }
 
- #inputButton {
+#inputButton {
    background-color: transparent;
    border: none;
    outline: none;
@@ -79,32 +80,54 @@ main {
    padding: 10px;
    font-size: 1rem;
    margin-left: auto;
- }
+}
 
- #inputButton:active {
+#inputButton:active {
    color: var(--orange);
- }
+}
+
+.settings-div {
+   display: flex;
+   justify-content: center;
+}
+
+.settings-button {
+   font-size: 1rem;
+   font-weight: 900;
+   background-color: var(--dark);
+   color: white;
+   height: 50px;
+   width: 50px;
+   border-radius: 50%;
+   border: none;
+   outline: none;
+   margin-right: 30px;
+}
+
+.settings-button:active {
+   color: var(--orange);
+}
 
 .error-message-div {
    grid-column: 2 / 3;
 }
 
- .error-message-p {
+.error-message-p {
    text-align: center;
    margin: 0;
    color: white;
    animation-duration: 1s;
    animation-name: glowup;
- }
+}
 
- @keyframes glowup {
+@keyframes glowup {
    from {
       color: var(--orange);
    }
    to {
       color: white;
    }
- }
+}
 
 main {
    display: grid;

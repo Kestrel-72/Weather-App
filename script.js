@@ -126,6 +126,13 @@ function loadTopHeader() {
 
    let settings = document.createElement('div');
    settings.classList.add('settings-div');
+   let celciusOnButton = document.createElement('button');
+   celciusOnButton.classList.add('settings-button', 'celcius-button');
+   celciusOnButton.textContent = '°C';
+   let fahrenheitOnButton = document.createElement('button');
+   fahrenheitOnButton.classList.add('settings-button', 'fahrenheit-button');
+   fahrenheitOnButton.textContent = '°F';
+   settings.append(celciusOnButton, fahrenheitOnButton);
    header.append(settings);
 
    let errorMessageDiv = document.createElement('div');
