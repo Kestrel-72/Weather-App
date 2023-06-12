@@ -96,7 +96,7 @@ function loadTopHeader() {
 
    let form = document.createElement('form');
    form.classList.add('search-form');
-   form.action = '#';
+   form.action = 'javascript:void(0);';
    form.method = '#';
    form.autocomplete = 'off';
    let input = document.createElement('input');
@@ -110,6 +110,7 @@ function loadTopHeader() {
    button.textContent = 'Search';
 
    button.addEventListener('click', () => {
+      alert('lick');
       if (input.value != '') {
          showWeatherData(input.value);
       } else {
@@ -117,7 +118,7 @@ function loadTopHeader() {
       }
    })
    
-   document.addEventListener('keypress', (event) => {
+   document.addEventListener('keyup', (event) => {
       if (event.key == 'Enter') {
          button.click();
       }
