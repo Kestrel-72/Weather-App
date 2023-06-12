@@ -1,3 +1,5 @@
+let mode = 'celcius';
+let currentLocation = '';
 loadTopHeader();
 
 let inputButton = document.getElementById('inputButton');
@@ -29,6 +31,7 @@ function processWeatherData(response) {
 
 async function showWeatherData(location) {
    try {
+      currentLocation = location;
       let data = await getWeatherData(location);
       let processedData = processWeatherData(data);
       console.log(processedData);
@@ -42,7 +45,7 @@ async function showWeatherData(location) {
    }
 }
 
-function calculateWindDescription(wind) {
+function calculateWindDescriptionKph(wind) {
    let windDescription = '';
    if (wind < 1) {
       windDescription = 'Calm and still';
@@ -65,6 +68,36 @@ function calculateWindDescription(wind) {
    } else if (wind < 103) {
       windDescription = 'Whole gale';
    } else if (wind < 119) {
+      windDescription = 'Storm';
+   } else {
+      windDescription = 'Hurricane';
+   }
+   return windDescription;
+}
+
+function calculateWindDescriptionMph(wind) {
+   let windDescription = '';
+   if (wind < 1) {
+      windDescription = 'Calm and still';
+   } else if (wind < 3) {
+      windDescription = 'Light wind';
+   } else if (wind < 8) {
+      windDescription = 'Light breeze';
+   } else if (wind < 19) {
+      windDescription = 'Gentle breeze';
+   } else if (wind < 25) {
+      windDescription = 'Fresh breeze';
+   } else if (wind < 32) {
+      windDescription = 'Strong breeze';
+   } else if (wind < 39) {
+      windDescription = 'Moderate gale';
+   } else if (wind < 47) {
+      windDescription = 'Fresh gale';
+   } else if (wind < 55) {
+      windDescription = 'Strong gale';
+   } else if (wind < 64) {
+      windDescription = 'Whole gale';
+   } else if (wind < 74) {
       windDescription = 'Storm';
    } else {
       windDescription = 'Hurricane';
@@ -110,7 +143,6 @@ function loadTopHeader() {
    button.textContent = 'Search';
 
    button.addEventListener('click', () => {
-      alert('lick');
       if (input.value != '') {
          showWeatherData(input.value);
       } else {
@@ -135,6 +167,20 @@ function loadTopHeader() {
    let fahrenheitOnButton = document.createElement('button');
    fahrenheitOnButton.classList.add('settings-button', 'fahrenheit-button');
    fahrenheitOnButton.textContent = '°F';
+
+   celciusOnButton.addEventListener('click', () => {
+      mode = 'celcius';
+      if (currentLocation) {
+         showWeatherData(currentLocation);
+      }
+   })
+   fahrenheitOnButton.addEventListener('click', () => {
+      mode = 'fahrenheit';
+      if (currentLocation) {
+         showWeatherData(currentLocation);
+      }
+   })
+
    settings.append(celciusOnButton, fahrenheitOnButton);
    header.append(settings);
 
@@ -230,17 +276,27 @@ function loadMain(data) {
    uvDiv.append(uvHeader, uvP);
    secondaryInfoSection.append(uvDiv);
 
-   locationP.textContent = `${data.location}, ${data.country}`,
-   tempP.textContent = `${data.tempC.toFixed(0)}`;
-   degreeSpan.textContent = '°C';
-   tempP.append(degreeSpan);
+   locationP.textContent = `${data.location}, ${data.country}`;
    conditionP.textContent = data.condition;
-   windDescriptionP.textContent = calculateWindDescription(data.wind_kph);
    cloudP.textContent = `${data.cloud}%`;
-   windP.textContent = `${data.wind_kph} km/h`;
    humidityP.textContent = `${data.humidity}%`;
    uvP.textContent = `${data.uv}`;
 
+   if (mode == 'celcius') {
+      tempP.textContent = `${data.tempC.toFixed(0)}`;
+      degreeSpan.textContent = '°C';
+      tempP.append(degreeSpan);
+      windDescriptionP.textContent = calculateWindDescriptionKph(data.wind_kph);
+      windP.textContent = `${data.wind_kph.toFixed(0)} km/h`;
+      
+   } else if (mode == 'fahrenheit') {
+      tempP.textContent = `${data.tempF.toFixed(0)}`;
+      degreeSpan.textContent = '°F';
+      tempP.append(degreeSpan);
+      windDescriptionP.textContent = calculateWindDescriptionMph(data.wind_kph);
+      windP.textContent = `${data.wind_mph.toFixed(0)} mph`;
+   }
+   
    main.append(secondaryInfoSection);
    let body = document.querySelector('body');
    body.append(main);
