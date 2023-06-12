@@ -21,6 +21,7 @@ html {
    box-sizing: border-box;
    font-size: 24px;
    background: linear-gradient(#0891b2, #155e75);
+   background-repeat: no-repeat;
    height: 100%;
    color: white;
    font-family: 'nunitoregular', sans-serif;
@@ -138,7 +139,7 @@ main {
 
 main {
    display: grid;
-   grid-template-columns: minmax(300px max-content) 1fr;
+   grid-template-columns: minmax(300px, max-content) 1fr;
    grid-template-rows: max-content 1fr;
 }
 
@@ -165,6 +166,7 @@ main {
    text-align: left;
    font-size: 4rem;
    margin: 0;
+   height: 5rem;
 }
 
 .degree-sign {
@@ -187,7 +189,7 @@ main {
 }
 
 .condition-p, .wind-description-p {
-   margin: 6px 0;
+   margin: 0;
 }
 
 #secondary-info {
