@@ -4,12 +4,8 @@
       font-size: 18px;
    }
 
-   .logo-div {
-      margin-right: 10px;
-   }
-
    .search-form {
-      min-width: 220px;
+      min-width: 210px;
    }
 
    #inputField {
@@ -35,5 +31,8 @@
       grid-row: 3 / 4;
   }
 
-  
+  .secondary-div {
+   margin-bottom: 30px;
+  }
+
 }

@@ -46,6 +46,7 @@ main {
 }
 
 .logo-div {
+   margin: 0 10px;
    grid-column: 1 / 2;
 }
 
@@ -204,4 +205,16 @@ main {
 
 .secondary-p {
    margin: 12px 0 0 0;
+}
+
+footer {
+   display: flex;
+   justify-content: center;
+   position: absolute;
+   bottom: 0;
+   width: 100%;
+}
+
+footer a {
+   color: var(--orange);
 }
