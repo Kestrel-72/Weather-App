@@ -124,7 +124,10 @@ function loadTopHeader() {
 
    let logoDiv = document.createElement('div');
    logoDiv.classList.add('logo-div');
-   logoDiv.textContent = 'Logo';
+   let logo = document.createElement('img');
+   logo.setAttribute('src', '/weather-symbol-4-svgrepo-com.svg');
+   logo.setAttribute('width', '50px');
+   logoDiv.append(logo);
    header.append(logoDiv);
 
    let form = document.createElement('form');
